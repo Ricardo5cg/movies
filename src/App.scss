@@ -1,0 +1,38 @@
+@import "./style/globals.scss";
+
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: #012433;
+}
+
+.main_content {
+  width: 70vw;
+  margin: 0 auto;
+  h1 {
+    @include fontRegular;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  .movies_table {
+    .movies_table_header {
+      display: grid;
+      grid-template-columns: 50px 3fr 1fr 2fr;
+      gap: 30px;
+      border-bottom: 1px solid $color1;
+      padding: 0 20px;
+      p {
+        @include fontBold;
+        color: $color1;
+        border: 1px solid red;
+        font-size: 10px;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 5px 0;
+      }
+    }
+  }
+
+}

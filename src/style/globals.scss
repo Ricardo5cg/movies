@@ -1,0 +1,22 @@
+
+//fonts
+@mixin fontLight {
+  font-family: Roboto, system-ui, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+@mixin fontRegular {
+  font-family: Roboto, system-ui, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+@mixin fontBold {
+  font-family: Roboto, system-ui, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+//colours
+$white: #ffffff;
+$color1: #0B749B;
+$darkest: #012433;
+$black: #000000;
