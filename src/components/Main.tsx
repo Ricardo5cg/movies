@@ -32,11 +32,10 @@ const Main = () => {
 
 
   useEffect(() => {
-    //console.log("yes", currentPage, pageSize)
     const fetchData = async () => {
       const response = await fetch(`http://movie-challenge-api-xpand.azurewebsites.net/api/movies?page=${currentPage}&size=${pageSize}`)
       const data = await response.json()
-      console.log(data.content)
+
       setMoviesData(prevItems => {
         if (currentPage === 0) {
           return [...data.content];
