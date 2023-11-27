@@ -18,15 +18,12 @@
 
   .movies_table {
     .movies_table_header {
-      display: grid;
-      grid-template-columns: 50px 3fr 1fr 2fr;
-      gap: 30px;
+      @include grid;
       border-bottom: 1px solid $color1;
       padding: 0 20px;
       p {
         @include fontBold;
         color: $color1;
-        border: 1px solid red;
         font-size: 10px;
         text-transform: uppercase;
         margin: 0;
@@ -40,8 +37,38 @@
         flex-direction: column;
         overflow: scroll;
         .movie_row_item {
-          border: 2px solid blue;
+          @include grid;
           padding: 25px 0;
+          padding: 0 20px;
+          border-bottom: 1px solid $color2;
+          .ranking_field {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .eye_icon_field {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .eye_icon_wrapper {
+              width: 30px;
+              height: 30px;
+              background-color: transparent;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 30px;
+              cursor: pointer;
+              transition: .25s ease-in-out background-color;
+              &:hover {
+                background-color: rgba($color2, 0.4);
+              }
+              img {
+                width: 15px;
+                height: auto;
+              }
+            }
+          }
         }
       }
     }

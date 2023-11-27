@@ -18,5 +18,14 @@
 //colours
 $white: #ffffff;
 $color1: #0B749B;
+$color2: #9AAEBB;
 $darkest: #012433;
 $black: #000000;
+
+
+//grid
+@mixin grid {
+  display: grid;
+  grid-template-columns: 50px 3fr 1fr 2fr 50px;
+  gap: 30px;
+}
