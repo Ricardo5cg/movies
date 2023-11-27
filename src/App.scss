@@ -33,6 +33,18 @@
         padding: 5px 0;
       }
     }
+
+    .movies_list_items {
+      .infinite-scroll-component {
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+        .movie_row_item {
+          border: 2px solid blue;
+          padding: 25px 0;
+        }
+      }
+    }
   }
 
 }
