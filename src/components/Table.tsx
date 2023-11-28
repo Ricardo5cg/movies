@@ -5,11 +5,12 @@ import { Movie } from '../interfaces/interfaces'
 interface Props {
   data: Movie[],
   fetchMoreData: () => void,
-  hasMore: boolean
+  hasMore: boolean,
+  showModal: (id: string) => void
 }
 
 
-const Table = ({data, fetchMoreData, hasMore}: Props) => {
+const Table = ({data, fetchMoreData, hasMore, showModal}: Props) => {
 
   //console.log(data)
 
@@ -38,7 +39,7 @@ const Table = ({data, fetchMoreData, hasMore}: Props) => {
                 <p className='year_field'>{item.year}</p>
                 <p className='revenue_field'>{revenue && '$'}{revenue}</p>
                 <div className='eye_icon_field'>
-                  <div className='eye_icon_wrapper'>
+                  <div className='eye_icon_wrapper' onClick={() => showModal(item.id)}>
                     <img src="src/assets/eye-icon.svg" />
                   </div>
                 </div>

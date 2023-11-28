@@ -73,5 +73,24 @@
       }
     }
   }
+}
 
+.modal_wrapper {
+  width: 100%;
+  height: 100dvh;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .modal {
+    width: 800px;
+    max-width: 90%;
+    height: fit-content;
+    padding: 20px 30px;
+    background-color: white;
+    box-shadow: 0px 20px 40px #01243366;
+  }
 }
