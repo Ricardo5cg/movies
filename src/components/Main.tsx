@@ -22,7 +22,7 @@ const Main = () => {
     if (((currentPage + 1) * pageSize) <= numberOfMovies) {
       setCurrentPage(prev => prev + 1)
     } else {
-      setHasMore(false) // No more movies to load
+      setHasMore(false) //No more movies to load
     }
   }
 
@@ -64,15 +64,11 @@ const Main = () => {
   }, [selectedMovieID])
 
 
-  //pass the show modal to the table component
   const showModal = (id: string) => {
     setSelectedMovieID(id)
-    setTimeout(() => {
-      setModalState(true)
-    }, 100)
+    setModalState(true)
   } 
 
-  //pass the show modal to the moda component
   const hideModal = () => {
     setModalState(false)
   }

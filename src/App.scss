@@ -92,5 +92,29 @@
     padding: 20px 30px;
     background-color: white;
     box-shadow: 0px 20px 40px #01243366;
+    max-height: 90dvh;
+    overflow: scroll;
+    position: relative;
+    .close_btn {
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      top: 20px;
+      right: 20px;
+      flex-direction: column;
+      gap: 3px;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 24px;
+        height: 24px;
+      }
+      p {
+        font-size: 8px;
+        line-height: 100%;
+        text-transform: uppercase;
+        margin: 0;
+      }
+    }
   }
 }
