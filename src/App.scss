@@ -116,5 +116,9 @@
         margin: 0;
       }
     }
+    h2 {
+      @include fontLight;
+      font-size: 32px;
+    }
   }
 }

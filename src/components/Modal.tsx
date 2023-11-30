@@ -14,7 +14,7 @@ const Modal = ({data, hideModal} : Props) => {
     return (
       <>
         { dataArr.map((item: keyof MovieFull) => (
-            <div className={`${item}_field`}>
+          <div className={`${item}_field`} key={data && data['id']}>
             <p>{item}</p>
             <p>{data && data[item]}</p>
           </div>  
