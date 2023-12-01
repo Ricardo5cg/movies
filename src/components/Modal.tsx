@@ -8,13 +8,12 @@ interface Props {
 
 const Modal = ({data, hideModal} : Props) => {
 
-  console.log(data)
 
   const parseDataIntoJsx = (dataArr: (keyof MovieFull)[]) => {
     return (
       <>
-        { data && dataArr.map((item: keyof MovieFull) => (
-          <div className={`${item}_field modal_field`} key={data['id']}>
+        { data && dataArr.map((item: keyof MovieFull, index: number) => (
+          <div className={`${item}_field modal_field`} key={`${data.id}_${item}_${index}`}>
             <p className="label">{item}</p>
             <p className="value">
               {item === 'revenue' ? (data[item] * 1000000).toLocaleString() : data[item]}
@@ -24,6 +23,7 @@ const Modal = ({data, hideModal} : Props) => {
       </>
     )
   }
+
 
   return (
     <>
@@ -36,11 +36,14 @@ const Modal = ({data, hideModal} : Props) => {
             </div>
             <h2>{data.title}</h2>
 
-            {parseDataIntoJsx(['year', 'genre', 'description'])}
-            <div className="director_actors_wrapper">
-              {parseDataIntoJsx(['director', 'actors'])}
-            </div>
-            {parseDataIntoJsx(['runtime', 'rating', 'votes', 'revenue', 'metascore'])}
+            <>
+              {parseDataIntoJsx(['year', 'genre', 'description'])}
+              <div className="director_actors_wrapper">
+                {parseDataIntoJsx(['director', 'actors'])}
+              </div>
+              {parseDataIntoJsx(['runtime', 'rating', 'votes', 'revenue', 'metascore'])}
+            </>
+
           </div>
         </div>
       ) : null
