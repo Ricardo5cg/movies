@@ -10,6 +10,11 @@
   font-weight: 400;
 }
 
+@mixin fontMedium {
+  font-family: Roboto, system-ui, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
 @mixin fontBold {
   font-family: Roboto, system-ui, Helvetica, Arial, sans-serif;
   font-weight: 700;
@@ -21,6 +26,21 @@ $color1: #0B749B;
 $color2: #9AAEBB;
 $darkest: #012433;
 $black: #000000;
+
+
+$white: #FFFFFF; /* White */
+$sky_blue: #00BAFF; /* Sky Blue */
+$slate_blue: #78849E; /* Slate Blue */
+$light_gray: #9AAEBB; /* Light Blue */
+$steel_blue: #718FA2; /* Steel Blue */
+$blue_smoke: #536B7A; /* Blue Smoke */
+$dark_cyan: #386071; /* Dark Cyan */
+$ocean_blue: #164E78; /* Dark Blue */
+$deep_cerulean: #0B749B; /* Deep Cerulean */
+$rich_cadet: #012433; /* Rich Black */
+$rich_blue_opacity: #01243366; /* Rich Black with Opacity */
+$slate_blue_opacity: #78849EB9; /* Slate Blue with Opacity */
+$black: #000000; /* Black */
 
 
 //grid

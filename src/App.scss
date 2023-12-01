@@ -19,11 +19,11 @@
   .movies_table {
     .movies_table_header {
       @include grid;
-      border-bottom: 1px solid $color1;
+      border-bottom: 1px solid $deep_cerulean;
       padding: 0 20px;
       p {
         @include fontBold;
-        color: $color1;
+        color: $deep_cerulean;
         font-size: 10px;
         text-transform: uppercase;
         margin: 0;
@@ -40,7 +40,8 @@
           @include grid;
           padding: 25px 0;
           padding: 0 20px;
-          border-bottom: 1px solid $color2;
+          border-bottom: 1px solid $light_gray;
+          align-items: center;
           .ranking_field {
             display: flex;
             align-items: center;
@@ -61,7 +62,7 @@
               cursor: pointer;
               transition: .25s ease-in-out background-color;
               &:hover {
-                background-color: rgba($color2, 0.4);
+                background-color: rgba($light_gray, 0.4);
               }
               img {
                 width: 15px;
@@ -73,52 +74,106 @@
       }
     }
   }
-}
 
-.modal_wrapper {
-  width: 100%;
-  height: 100dvh;
-  background-color: rgba($color: #000000, $alpha: 0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .modal {
-    width: 800px;
-    max-width: 90%;
-    height: fit-content;
-    padding: 20px 30px;
-    background-color: white;
-    box-shadow: 0px 20px 40px #01243366;
-    max-height: 90dvh;
-    overflow: scroll;
-    position: relative;
-    .close_btn {
-      position: absolute;
+  .modal_wrapper {
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba($color: $black, $alpha: 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .modal {
+      width: 800px;
+      max-width: 90%;
+      height: fit-content;
+      padding: 20px 50px;
+      background-color: white;
+      box-shadow: 0px 20px 40px #01243366;
+      max-height: 90dvh;
+      overflow: scroll;
+      position: relative;
       display: flex;
-      justify-content: flex-end;
-      top: 20px;
-      right: 20px;
       flex-direction: column;
-      gap: 3px;
-      align-items: center;
-      cursor: pointer;
-      img {
-        width: 24px;
-        height: 24px;
+      gap: 18px;
+
+      .close_btn {
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        top: 25px;
+        right: 40px;
+        flex-direction: column;
+        gap: 3px;
+        align-items: center;
+        cursor: pointer;
+        img {
+          width: 24px;
+          height: 24px;
+        }
+        p {
+          font-size: 8px;
+          line-height: 100%;
+          text-transform: uppercase;
+          margin: 0;
+          color: $steel_blue;
+        }
       }
-      p {
-        font-size: 8px;
-        line-height: 100%;
-        text-transform: uppercase;
-        margin: 0;
+
+      h2 {
+        @include fontLight;
+        font-size: 32px;
+        margin-top: 5px;
+        color: $ocean_blue;
+        margin-bottom: -5px;
+        &::after {
+          content: '';
+          width: 52px;
+          height: 2px;
+          position: relative;
+          background-color: #21B3CF;
+          display: block;
+          margin-top: 12px;
+        }
       }
-    }
-    h2 {
-      @include fontLight;
-      font-size: 32px;
+      .modal_field {
+        .label {
+          @include fontRegular;
+          font-size: 14px;
+          text-transform: capitalize;
+          color: $slate_blue_opacity;
+          margin: 0 0 6px 0;
+        }
+        .value {
+          @include fontMedium;
+          font-size: 16px;
+          margin: 0;
+          color: $slate_blue;
+        }
+        &.runtime_field {
+          .value::after {
+            content: ' mins';
+          }
+        }
+        &.revenue_field {
+          .value::before {
+            content: '$';
+          }
+        }
+      }
+      .director_actors_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        .director_field {
+          width: fit-content;
+        }
+        .value {
+          color: $sky_blue;
+        }
+      }
     }
   }
 }

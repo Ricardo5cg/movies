@@ -13,10 +13,12 @@ const Modal = ({data, hideModal} : Props) => {
   const parseDataIntoJsx = (dataArr: (keyof MovieFull)[]) => {
     return (
       <>
-        { dataArr.map((item: keyof MovieFull) => (
-          <div className={`${item}_field`} key={data && data['id']}>
-            <p>{item}</p>
-            <p>{data && data[item]}</p>
+        { data && dataArr.map((item: keyof MovieFull) => (
+          <div className={`${item}_field modal_field`} key={data['id']}>
+            <p className="label">{item}</p>
+            <p className="value">
+              {item === 'revenue' ? (data[item] * 1000000).toLocaleString() : data[item]}
+            </p>
           </div>  
         ))}
       </>
@@ -34,11 +36,11 @@ const Modal = ({data, hideModal} : Props) => {
             </div>
             <h2>{data.title}</h2>
 
-            {parseDataIntoJsx(['year', 'rank', 'revenue', 'genre', 'description'])}
+            {parseDataIntoJsx(['year', 'genre', 'description'])}
             <div className="director_actors_wrapper">
               {parseDataIntoJsx(['director', 'actors'])}
             </div>
-            {parseDataIntoJsx(['runtime', 'rating', 'votes', 'metascore'])}
+            {parseDataIntoJsx(['runtime', 'rating', 'votes', 'revenue', 'metascore'])}
           </div>
         </div>
       ) : null
