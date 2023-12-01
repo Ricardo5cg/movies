@@ -63,13 +63,14 @@ const Main = () => {
 
   useEffect(() => {
     console.log(filterOneState)
+    console.log(filterTwoState)
 
     const top10Movies = () => {
       const sortAllMovies = allMovies.sort((a, b) => b.revenue - a.revenue)
       return sortAllMovies.slice(0, 10)
     }
     setFilteredMoviesData(top10Movies)
-  }, [allMovies, filterOneState])
+  }, [allMovies, filterOneState, filterTwoState])
 
   //fetch full movie
   useEffect(() => {
