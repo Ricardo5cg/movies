@@ -12,9 +12,6 @@ interface Props {
 
 const Table = ({data, fetchMoreData, hasMore, showModal}: Props) => {
 
-  //console.log(data)
-
-
   return (
     <div className='movies_table'>
       <div className='movies_table_header'>
@@ -28,7 +25,7 @@ const Table = ({data, fetchMoreData, hasMore, showModal}: Props) => {
           dataLength={data.length}
           next={fetchMoreData}
           hasMore={hasMore}
-          loader={<p>Loading...</p>}
+          loader={data.length > 10 ? <p>Loading...</p> : null}
         >
           {data.map((item: Movie) => {
             const revenue = item.revenue ? Math.trunc(item.revenue * 1000000).toLocaleString() : ''

@@ -56,17 +56,20 @@ const Main = () => {
         }
       })
     }
+    fetchData()
+    
+  }, [currentPage, allMovies])
 
-    if (filterOneState) {
+
+  useEffect(() => {
+    console.log(filterOneState)
+
+    const top10Movies = () => {
       const sortAllMovies = allMovies.sort((a, b) => b.revenue - a.revenue)
-      const top10Movies = sortAllMovies.slice(0, 10)
-      setFilteredMoviesData(top10Movies)
-    } else {
-      fetchData()
+      return sortAllMovies.slice(0, 10)
     }
-  
-  }, [currentPage, allMovies, filterOneState])
-
+    setFilteredMoviesData(top10Movies)
+  }, [allMovies, filterOneState])
 
   //fetch full movie
   useEffect(() => {
