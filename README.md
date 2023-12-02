@@ -19,16 +19,13 @@ npm install
 npm run dev
 ```
 
+## Observations
+> Initially, I began by implementing 'lazy loading' functionality by fetching 15 movies in each instance. However, I encountered a limitation with the API as it lacked a filter to retrieve the top 10 movies based on revenue. Consequently, I ended up fetching all the movies in one go and storing the data in a useState, which was somewhat counterintuitive. Nonetheless, this approach allowed me to demonstrate my ability to implement 'lazy loading' and utilize API parameters. Additionally, I made some minor adjustments to the filters style to ensure that the 'clear icon' remained visible and wasn't obscured by the dropdown.
+
+
 ## Author
 
 👤 **Ricardo Gonçalves**
 
 * Website: https://ricardocg.com/
 * Github: [@Ricardo5cg](https://github.com/Ricardo5cg)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
