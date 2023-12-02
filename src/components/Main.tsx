@@ -23,9 +23,10 @@ const Main = () => {
   const [filterOneState, setFilterOneState] = useState<boolean>(false)
   const [filterTwoState, setFilterTwoState] = useState<boolean>(false)
   const [selectedFilterYear, setSelectedFilterYear] = useState<number | null>(null)
+  const [dropdownState, setDropdownState] = useState<boolean>(false)
+
 
   const fetchMoreData = () => {
-    console.log((currentPage + 1) * pageSize)
     if (((currentPage + 1) * pageSize) <= numberOfMovies) {
       setCurrentPage(prev => prev + 1)
     } else {
@@ -75,14 +76,18 @@ const Main = () => {
       return sortAllMovies.slice(0, 10)
     }
     
+    if (filterTwoState) {
+      setDropdownState(true)
+    }
 
     if (filterTwoState && selectedFilterYear) {
       setFilteredMoviesData(() => top10MoviesPerYear(selectedFilterYear))
-    } else if (filterOneState) {
+    } else if (filterOneState || (filterTwoState && !selectedFilterYear)) {
       setFilteredMoviesData(top10Movies)
     }
 
   }, [allMovies, filterOneState, filterTwoState, selectedFilterYear])
+
 
   //fetch full movie
   useEffect(() => {
@@ -115,6 +120,11 @@ const Main = () => {
     setFilterTwoState(prev => !prev)
   }
 
+  const clearFilters = () => {
+    setFilterOneState(false)
+    setFilterTwoState(false)
+  }
+
 
   return (
     <div className='main_content'>
@@ -126,6 +136,9 @@ const Main = () => {
         toggleFilterTwo={toggleFilterTwo}
         selectedFilterYear={selectedFilterYear}
         setSelectedFilterYear={setSelectedFilterYear}
+        clearFilters={clearFilters}
+        dropdownState={dropdownState}
+        setDropdownState={setDropdownState}
       />
       <Table data={(!filterOneState && !filterTwoState) ? moviesData : filteredMoviesData} fetchMoreData={fetchMoreData} hasMore={hasMore} showModal={showModal} />
       {modalState && <Modal data={selectedMovieData} hideModal={hideModal} />}
