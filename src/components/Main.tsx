@@ -22,6 +22,7 @@ const Main = () => {
 
   const [filterOneState, setFilterOneState] = useState<boolean>(false)
   const [filterTwoState, setFilterTwoState] = useState<boolean>(false)
+  const [selectedFilterYear, setSelectedFilterYear] = useState<number | null>(null)
 
   const fetchMoreData = () => {
     console.log((currentPage + 1) * pageSize)
@@ -62,15 +63,26 @@ const Main = () => {
 
 
   useEffect(() => {
-    console.log(filterOneState)
-    console.log(filterTwoState)
-
+  
     const top10Movies = () => {
       const sortAllMovies = allMovies.sort((a, b) => b.revenue - a.revenue)
       return sortAllMovies.slice(0, 10)
     }
-    setFilteredMoviesData(top10Movies)
-  }, [allMovies, filterOneState, filterTwoState])
+
+    const top10MoviesPerYear = (year: number) => {
+      const filterMovies = [...allMovies].filter(movie => movie.year === year)
+      const sortAllMovies = filterMovies.sort((a, b) => b.revenue - a.revenue)
+      return sortAllMovies.slice(0, 10)
+    }
+    
+
+    if (filterTwoState && selectedFilterYear) {
+      setFilteredMoviesData(() => top10MoviesPerYear(selectedFilterYear))
+    } else if (filterOneState) {
+      setFilteredMoviesData(top10Movies)
+    }
+
+  }, [allMovies, filterOneState, filterTwoState, selectedFilterYear])
 
   //fetch full movie
   useEffect(() => {
@@ -103,9 +115,6 @@ const Main = () => {
     setFilterTwoState(prev => !prev)
   }
 
-  //filter top 10 movies with biggest revenue
-
-
 
   return (
     <div className='main_content'>
@@ -115,8 +124,10 @@ const Main = () => {
         filterTwo={filterTwoState}
         toggleFilterOne={toggleFilterOne}
         toggleFilterTwo={toggleFilterTwo}
+        selectedFilterYear={selectedFilterYear}
+        setSelectedFilterYear={setSelectedFilterYear}
       />
-      <Table data={!filterOneState ? moviesData : filteredMoviesData} fetchMoreData={fetchMoreData} hasMore={hasMore} showModal={showModal} />
+      <Table data={(!filterOneState && !filterTwoState) ? moviesData : filteredMoviesData} fetchMoreData={fetchMoreData} hasMore={hasMore} showModal={showModal} />
       {modalState && <Modal data={selectedMovieData} hideModal={hideModal} />}
     </div>
   )
