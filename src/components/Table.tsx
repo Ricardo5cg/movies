@@ -12,7 +12,6 @@ interface Props {
 
 const Table = ({data, fetchMoreData, hasMore, showModal}: Props) => {
 
-  console.log(data.length)
 
   return (
     <div className='movies_table'>
