@@ -4,7 +4,7 @@
 .header {
   width: 100%;
   height: 50px;
-  background-color: #012433;
+  background-color: $rich_cadet;
 }
 
 .main_content {
@@ -76,6 +76,7 @@
         .label {
           font-size: 12px;
           color: $slate_blue_opacity;
+          padding-top: 4px;
         }
         .years_wrapper {
           width: 85%;
@@ -140,8 +141,9 @@
           @include grid;
           padding: 25px 0;
           padding: 0 20px;
-          border-bottom: 1px solid $light_gray;
+          border-bottom: 1px solid rgba($light_gray, 0.4);
           align-items: center;
+          color: $blue_smoke;
           .ranking_field {
             display: flex;
             align-items: center;
@@ -210,7 +212,7 @@
         display: flex;
         justify-content: flex-end;
         top: 25px;
-        right: 40px;
+        right: 30px;
         flex-direction: column;
         gap: 3px;
         align-items: center;
