@@ -58,7 +58,7 @@ const Filters = ({
       </div>
       {(filterOne || filterTwo) ? (
         <div className='clear_filters' onClick={clearFilters}>
-          <img src="src/assets/clear_btn.svg" alt='clear filters button' />
+          <img src="/clear_btn.svg" alt='clear filters button' />
         </div>
       ) : null}
     </div>

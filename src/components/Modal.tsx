@@ -31,7 +31,7 @@ const Modal = ({data, hideModal} : Props) => {
         <div className="modal_wrapper">
           <div className="modal">
             <div onClick={hideModal} className="close_btn">
-              <img src="src/assets/close-24px.svg" alt="close button" />
+              <img src="/close-24px.svg" alt="close button" />
               <p>Close</p>
             </div>
             <h2>{data.title}</h2>

@@ -39,7 +39,7 @@ const Table = ({data, fetchMoreData, hasMore, showModal}: Props) => {
                   <p className='revenue_field'>{revenue && '$'}{revenue}</p>
                   <div className='eye_icon_field'>
                     <div className='eye_icon_wrapper' onClick={() => showModal(item.id)}>
-                      <img src="src/assets/eye-icon.svg" alt='eye icon svg' />
+                      <img src="/eye-icon.svg" alt='eye icon svg' />
                     </div>
                   </div>
                 </div>
