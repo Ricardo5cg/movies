@@ -120,7 +120,7 @@
     min-width: 600px;
     .movies_table_header {
       @include grid;
-      border-bottom: 1px solid $deep_cerulean;
+      border-bottom: 1px solid rgba($deep_cerulean, 0.6);
       padding: 0 20px;
       p {
         @include fontBold;
@@ -178,7 +178,11 @@
     .no_movies_found {
       width: 100%;
       text-align: center;
-      margin: 200px 0;
+      color: #536B7A;
+      min-height: calc(100dvh - 300px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
