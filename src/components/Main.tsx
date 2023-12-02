@@ -36,7 +36,7 @@ const Main = () => {
 
   useEffect(() => {
     const numberOfElements = async () => {
-      const response = await fetch(`http://movie-challenge-api-xpand.azurewebsites.net/api/movies`)
+      const response = await fetch(`https://movie-challenge-api-xpand.azurewebsites.net/api/movies`)
       const data = await response.json()
       setNumberOfMovies(data.totalElements)
       setAllMovies(data.content)
@@ -47,7 +47,7 @@ const Main = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://movie-challenge-api-xpand.azurewebsites.net/api/movies?page=${currentPage}&size=${pageSize}`)
+      const response = await fetch(`https://movie-challenge-api-xpand.azurewebsites.net/api/movies?page=${currentPage}&size=${pageSize}`)
       const data = await response.json()
 
       setMoviesData(prevItems => {
@@ -92,7 +92,7 @@ const Main = () => {
   //fetch full movie
   useEffect(() => {
     const retrieveMovieData = async () => {
-      const response = await fetch(`http://movie-challenge-api-xpand.azurewebsites.net/api/movies/${selectedMovieID}`)
+      const response = await fetch(`https://movie-challenge-api-xpand.azurewebsites.net/api/movies/${selectedMovieID}`)
       const data = await response.json()
       setSelectedMovieData(data)
     }
