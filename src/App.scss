@@ -59,6 +59,10 @@
         visibility: hidden;
         opacity: 0;
         transition: .25s ease-in-out all;
+        @media (max-width: 600px) {
+          top: 40px;
+          left: 0;
+        }
         &.showDropdown {
           visibility: visible;
           opacity: 1;
